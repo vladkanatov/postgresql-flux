@@ -1,0 +1,30 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: HelmRepository
+metadata:
+  name: grafana-repo
+  namespace: monitoring
+spec:
+  url: https://grafana.github.io/helm-charts
+  interval: 1h0m
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: grafana
+  namespace: monitoring
+spec:
+  chart:
+    spec:
+      chart: grafana
+      version: 8.5.7 # Укажите нужную версию
+      sourceRef:
+        kind: HelmRepository
+        name: grafana-repo
+      interval: 5m
+  values:
+    persistence:
+      enabled: true
+      size: 1Gi
+    adminPassword: "admin" # Поменяйте на более сложный пароль
+    service:
+      type: ClusterIP
