@@ -2,7 +2,7 @@ apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
   name: postgres-cluster
-  namespace: postgres
+  namespace: postgresql
 spec:
   instances: 3  # Число реплик
   primaryUpdateStrategy: supervised
