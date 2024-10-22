@@ -1,0 +1,28 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: postgres-cluster
+  namespace: default
+spec:
+  instances: 3  # Число реплик
+  primaryUpdateStrategy: supervised
+
+  postgresql:
+    parameters:
+      max_worker_processes: "100"
+    pg_hba:
+      # To access through TCP/IP you will need to get username
+      # and password from the secret cluster-example-custom-app
+      - host all all all md5
+
+  storage:
+    pvcTemplate:
+      accessModes:
+        - ReadWriteOnce
+      resources:
+        requests:
+          storage: 100Gi
+      storageClassName: local-path
+      volumeMode: Filesystem
+  walStorage:
+    size: 3Gi

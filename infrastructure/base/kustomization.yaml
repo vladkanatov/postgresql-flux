@@ -3,4 +3,4 @@ kind: Kustomization
 resources:
   - grafana/helmrelease.yaml    
   - prometheus/helmrelease.yaml
-  - postgres-operator/helmrelease.yaml
+  - postgres-operator
