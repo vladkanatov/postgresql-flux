@@ -17,7 +17,7 @@ spec:
   chart:
     spec:
       chart: kube-prometheus-stack
-      version: 51.2.0 # Укажите нужную версию
+      version: 65.3.1 # Укажите нужную версию
       sourceRef:
         kind: HelmRepository
         name: prometheus-repo
