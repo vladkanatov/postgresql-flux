@@ -22,6 +22,8 @@ spec:
         name: cloudnative-pg
       version: 0.22.0  # замените на нужную версию
   values:
-    grafanaDashboard:
-      create: true
-      namespace: "monitoring"
+    monitoring:
+      grafanaDashboard:
+        create: true
+        namespace: "monitoring"
+      podMonitorEnabled: true
