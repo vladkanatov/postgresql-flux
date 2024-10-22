@@ -2,4 +2,5 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   - grafana/helmrelease.yaml    
-  - prometheus/helmrelease.yaml  
+  - prometheus/helmrelease.yaml
+  - postgres-operator/helmrelease.yaml
